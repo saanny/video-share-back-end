@@ -1,5 +1,5 @@
 {
-  "name": "youtube-clone-notification-service",
+  "name": "youtube-clone-video-service",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -13,7 +13,7 @@
     "test": "jest --coverage=true -w=1 --forceExit --detectOpenHandles --watchAll=false"
   },
   "keywords": [],
-  "author": "Amir Ahmadi",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@jest/types": "^29.6.3",
