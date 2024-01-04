@@ -7,7 +7,9 @@ const host = process.env.GRPC_HOST || "localhost:9090"
 
 const grpcServer: TestServiceHandlers = {
     CreateTest(call, callback) {
-        console.log(call)
+        if (call.request) {
+            console.log(` ${call.request.description} ${call.request.name}`)
+        }
         callback(null, {
             tests: {
                 description: "test",
