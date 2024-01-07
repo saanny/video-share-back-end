@@ -8,8 +8,16 @@ if (DEVELOPMENT) {
 
 const {
     RABBITMQ_ENDPOINT,
+    MYSQL_DATABASE,
+    MYSQL_USER,
+    MYSQL_PASSWORD,
+    MYSQL_HOST
 } = process.env;
 
 export {
     RABBITMQ_ENDPOINT,
+    MYSQL_DATABASE,
+    MYSQL_USER,
+    MYSQL_PASSWORD,
+    MYSQL_HOST
 };

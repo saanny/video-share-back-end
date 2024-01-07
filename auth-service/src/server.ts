@@ -1,9 +1,11 @@
 // import { Channel } from "amqplib";
-// import { newConnection } from "@notifications/broker";
+// import { newConnection } from "@auth/broker";
 
+import { mysqlConnection } from "./infra/db/mysql";
 import { createGrpcServer } from "./protos/server";
 
 export async function start() {
+    mysqlConnection()
     createGrpcServer()
     startQueues();
 }

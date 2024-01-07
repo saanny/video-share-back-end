@@ -1,5 +1,5 @@
 import client, { Channel, Connection } from 'amqplib';
-import { RABBITMQ_ENDPOINT } from '@notifications/config';
+import { RABBITMQ_ENDPOINT } from '@auth/config';
 
 async function newConnection() {
     try {
