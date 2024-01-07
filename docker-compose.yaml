@@ -65,9 +65,9 @@ services:
     environment:
       POSTGRES_PASSWORD: admintest
       POSTGRES_USER: admintest
-      POSTGRES_DB: youtube_user
+      POSTGRES_DB: users
     ports:
-      - 5433:5432
+      - 5432:5432
     volumes:
       - ./docker-volumes/postgresql-user:/var/lib/postgresql
   rabbitmq:
