@@ -9,22 +9,39 @@ services:
     command: redis-server --loglevel warning
     volumes:
       - ./docker-volumes/cache:/data
-  mongodbMetaVideo:
-    container_name: mongodb_meta_video_container
+  mongodbCompressVideo:
+    container_name: mongodb_compress_video_container
     image: mongo:latest
     restart: always
     ports:
       - 27017:27017
     volumes:
-      - ./docker-volumes/data-meta-video:/data/db
-  mongodbNotification:
-    container_name: mongodb_notification_container
+      - ./docker-volumes/data-compress-video:/data/db
+  mongodbUploadVideo:
+    container_name: mongodb_upload_video_container
     image: mongo:latest
     restart: always
     ports:
       - 27018:27017
     volumes:
-      - ./docker-volumes/data-notification:/data/db      
+      - ./docker-volumes/data-upload-video:/data/db    
+  mongodbVideos:
+    container_name: mongodb_videos_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27019:27017
+    volumes:
+      - ./docker-volumes/data-video:/data/db    
+  mongodbNotification:
+    container_name: mongodb_notification_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27020:27017
+    volumes:
+      - ./docker-volumes/data-notification:/data/db    
+
   mysqlAuth:
     container_name: mysql_container
     image: mysql

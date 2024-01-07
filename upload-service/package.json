@@ -42,6 +42,7 @@
     "elastic-apm-node": "^4.1.0",
     "express-async-errors": "^3.1.1",
     "http-status-codes": "^2.3.0",
+    "mongoose": "^8.0.3",
     "nodemailer": "^6.9.7",
     "pino-pretty": "^10.2.3",
     "shelljs": "^0.8.5",

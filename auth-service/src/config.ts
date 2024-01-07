@@ -11,7 +11,8 @@ const {
     MYSQL_DATABASE,
     MYSQL_USER,
     MYSQL_PASSWORD,
-    MYSQL_HOST
+    MYSQL_HOST,
+    GRPC_HOST
 } = process.env;
 
 export {
@@ -19,5 +20,6 @@ export {
     MYSQL_DATABASE,
     MYSQL_USER,
     MYSQL_PASSWORD,
-    MYSQL_HOST
+    MYSQL_HOST,
+    GRPC_HOST
 };

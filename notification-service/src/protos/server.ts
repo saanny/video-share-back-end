@@ -2,7 +2,7 @@ import { TestServiceHandlers } from "./dist/test/TestService"
 import * as grpc from '@grpc/grpc-js'
 import * as protoLoader from '@grpc/proto-loader'
 import { ProtoGrpcType } from "./dist/test"
-import { GRPC_HOST } from "@auth/config"
+import { GRPC_HOST } from "@notifications/config"
 
 const host = GRPC_HOST || "localhost:9090"
 

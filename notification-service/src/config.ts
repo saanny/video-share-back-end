@@ -8,8 +8,12 @@ if (DEVELOPMENT) {
 
 const {
     RABBITMQ_ENDPOINT,
+    MONGO_DB_URL,
+    GRPC_HOST
 } = process.env;
 
 export {
     RABBITMQ_ENDPOINT,
+    MONGO_DB_URL,
+    GRPC_HOST
 };
