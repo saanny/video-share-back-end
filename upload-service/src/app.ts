@@ -1,4 +1,4 @@
-import { start } from "@notifications/server";
+import { start } from "@upload/server";
 
 function init() {
     start();

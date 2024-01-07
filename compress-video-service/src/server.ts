@@ -1,5 +1,5 @@
 // import { Channel } from "amqplib";
-// import { newConnection } from "@notifications/broker";
+// import { newConnection } from "@compress-video/broker";
 
 export async function start() {
     startQueues();
@@ -7,5 +7,5 @@ export async function start() {
 
 async function startQueues() {
     // TODO must remove comments when need to use this
-    // const emailChannel: Channel = await newConnection() as Channel;
+    // const channel: Channel = await newConnection() as Channel;
 }

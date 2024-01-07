@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package test;
+
+message TestModel {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message CreateTestRequest {
+  string name = 1;
+  string description = 2;
+}
+message CreateTestResponse { TestModel tests = 1; }
+service TestService {
+  rpc CreateTest(CreateTestRequest) returns (CreateTestResponse);
+}

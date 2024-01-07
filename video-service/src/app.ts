@@ -1,4 +1,4 @@
-import { start } from "@notifications/server";
+import { start } from "@video/server";
 
 function init() {
     start();

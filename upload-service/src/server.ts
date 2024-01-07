@@ -1,5 +1,5 @@
 // import { Channel } from "amqplib";
-// import { newConnection } from "@notifications/broker";
+// import { newConnection } from "@upload/broker";
 
 export async function start() {
     startQueues();
