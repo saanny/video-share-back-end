@@ -1,5 +1,5 @@
 import client, { Channel, Connection } from 'amqplib';
-import { RABBITMQ_ENDPOINT } from '@compress-video/config';
+import { RABBITMQ_ENDPOINT } from "@compress-video/config";
 
 async function newConnection() {
     try {

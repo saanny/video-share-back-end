@@ -1,11 +1,15 @@
-// import { Channel } from "amqplib";
-// import { newConnection } from "@compress-video/broker";
+import { newConnection } from "./broker/broker";
+import { Consumer } from "./broker/consumer";
+import { IChannelBroker } from "./interface/channelBroker.interface";
 
 export async function start() {
-    startQueues();
+  startQueues();
 }
 
 async function startQueues() {
-    // TODO must remove comments when need to use this
-    // const channel: Channel = await newConnection() as Channel;
+  const channel = await newConnection()
+  // const { queueName, exchangeName, channel }: IChannelBroker =
+  //   await ChannelBroker();
+
+  await Consumer(channel!);
 }

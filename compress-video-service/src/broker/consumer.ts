@@ -1,25 +1,35 @@
-import { Channel, ConsumeMessage } from 'amqplib';
-import { newConnection } from './';
+import videoCompressor from "@compress-video/util/videoCompressor";
+import { Channel } from "amqplib";
+import { newConnection } from "./broker";
 
+export async function Consumer(channel: Channel) {
+  if (!channel) {
+    channel = (await newConnection()) as Channel;
+  }
+  const exchangeName = "video_compress";
+  await channel.assertExchange(exchangeName, "direct");
 
-async function subscribeToUploadVideo(channel: Channel) {
-    try {
-        if (!channel) {
-            channel = await newConnection() as Channel;
-        }
-        const exchangeName = 'ex-upload-video';
-        const routingKey = 'ex-upload-video-r';
-        const queueName = 'upload-video';
-        await channel.assertExchange(exchangeName, 'direct');
-        const queue = await channel.assertQueue(queueName, { durable: true, autoDelete: false });
-        await channel.bindQueue(queue.queue, exchangeName, routingKey);
-        channel.consume(queue.queue, async (msg: ConsumeMessage | null) => {
-            const data = JSON.parse(msg!.content.toString());
-            console.log(data)
-            channel.ack(msg!);
-        });
-    } catch (error) {
+  const { queue } = await channel.assertQueue("", { exclusive: true });
+  
+  channel.bindQueue(queue, exchangeName, "video_uploaded");
 
+  channel.consume(queue, async (msg) => {
+    if (msg) {
+      try {
+        console.log(JSON.parse(msg?.content.toString("utf-8")));
+
+        const { userId, videoPath } = JSON.parse(
+          msg?.content.toString("utf-8")
+        );
+
+         await videoCompressor.compress(
+          videoPath,
+          userId
+        );
+        channel.ack(msg!);
+      } catch (err) {
+        console.error("Error compressing video or publishing events:", err);
+      }
     }
+  });
 }
-export { subscribeToUploadVideo };
