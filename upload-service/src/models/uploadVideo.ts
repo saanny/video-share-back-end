@@ -1,13 +1,22 @@
 import { Schema, model } from 'mongoose';
 
 const uploadVideoSchema: Schema = new Schema(
-    {
-        createdAt: { type: Date, default: Date.now }
-    },
-    {
-        versionKey: false
-    }
+  {
+    file_name: String,
+    resolution: String,
+    ext: String,
+    path_on_disk: String
+  },
+  {
+    timestamps: true,
+    versionKey: false
+  }
 );
 
-const UploadVideoModel = model('UploadVideo', uploadVideoSchema, 'upload-video');
+const UploadVideoModel = model(
+  'UploadVideo',
+  uploadVideoSchema,
+  'upload-video'
+);
+
 export { UploadVideoModel };
