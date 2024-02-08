@@ -1,7 +1,19 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model }from 'mongoose';
 
 const notificationSchema: Schema = new Schema(
     {
+        description:{
+            type:String
+        },
+         title:{
+            type:String 
+        },
+        isRead:{
+            type:Boolean
+        },
+        userId:{
+            type: Schema.Types.ObjectId
+        },
         createdAt: { type: Date, default: Date.now }
     },
     {
