@@ -1,11 +1,11 @@
 // import { Channel } from "amqplib";
 // import { newConnection } from "@users/broker";
 
-import { doUnaryCallAsync } from "./protos/client";
+// import { doUnaryCallAsync } from "./protos/client";
 
 
 export async function start() {
-    doUnaryCallAsync();
+    // doUnaryCallAsync();
     startQueues();
 }
 
