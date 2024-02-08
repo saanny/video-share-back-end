@@ -9,7 +9,8 @@ const notificationSchema: Schema = new Schema(
             type:String 
         },
         isRead:{
-            type:Boolean
+            type:Boolean,
+            default:false
         },
         userId:{
             type: Schema.Types.ObjectId
