@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package test;
+
+message NotificationModel {
+  int32 id = 1;
+  string title = 2;
+  string description = 3;
+  bool isRead = 4;
+}
+
+message GetNotificationsRequest { int32 userId = 1; }
+message GetNotificationsResponse { NotificationModel notifications = 1; }
+service TestService {
+  rpc GetNotifications(GetNotificationsRequest)
+      returns (GetNotificationsResponse);
+}
