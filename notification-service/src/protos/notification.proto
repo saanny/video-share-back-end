@@ -11,7 +11,7 @@ message NotificationModel {
 
 message GetNotificationsRequest { int32 userId = 1; }
 message GetNotificationsResponse { NotificationModel notifications = 1; }
-service TestService {
+service NotificationService {
   rpc GetNotifications(GetNotificationsRequest)
       returns (GetNotificationsResponse);
 }
