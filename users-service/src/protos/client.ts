@@ -3,7 +3,7 @@ import * as protoLoader from '@grpc/proto-loader'
 import { ProtoGrpcType } from './dist/test'
 
 
-const host = '0.0.0.0:9090'
+const host = '0.0.0.0:9090';
 const packageDefinition = protoLoader.loadSync('./src/protos/test.proto')
 const proto = grpc.loadPackageDefinition(packageDefinition) as unknown as ProtoGrpcType
 
