@@ -13,7 +13,7 @@ export async function Consumer(channel: Channel) {
   
   channel.bindQueue(queue, exchangeName, "video_uploaded");
 
-  channel.consume(queue, async (msg) => {
+  channel.consume(queue, async (msg: any) => {
     if (msg) {
       try {
         console.log(JSON.parse(msg?.content.toString("utf-8")));
