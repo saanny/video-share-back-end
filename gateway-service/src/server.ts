@@ -4,12 +4,12 @@ import http from 'http';
 import cors from 'cors';
 import compression from 'compression';
 import { appRoutes } from './routes';
-const SERVER_PORT= 9000;
+const SERVER_PORT= 5000;
 export class Gateway{
 
     private app:Application;
     constructor(app: Application){
-        this.app = app 
+        this.app = app; 
     }
 
     public start():void{

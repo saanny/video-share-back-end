@@ -1,11 +1,13 @@
 // import { Channel } from "amqplib";
 // import { newConnection } from "@users/broker";
 
+import { createGrpcServer } from "./protos/server";
+
 // import { doUnaryCallAsync } from "./protos/client";
 
 
 export async function start() {
-    // doUnaryCallAsync();
+    createGrpcServer();
     startQueues();
 }
 

@@ -9,9 +9,7 @@ const findByEmail = async (email:string)=>{
     try {
        const result = await UserModel.findOne({
         where:{
-            attribute:{
-                email:email
-            }
+          email:email 
         }
        });
        return result ?? {}; 
