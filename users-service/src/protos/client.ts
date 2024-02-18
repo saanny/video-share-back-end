@@ -16,21 +16,3 @@ client.waitForReady(deadline, (error?: Error) => {
     if (error) console.log(`Client connect error: ${error.message}`)
 })
 
-export async function doUnaryCallAsync() {
-    return new Promise((resolve, reject) => {
-        client.createTest(
-            {
-                name: 'Amir',
-                description: "Hello"
-            },
-            (error, serverMessage) => {
-                if (error) {
-                    reject(error)
-                } else if (serverMessage) {
-                    console.log(serverMessage.tests)
-                    resolve(serverMessage.tests)
-                }
-            }
-        )
-    })
-}

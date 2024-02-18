@@ -34,7 +34,8 @@ const findById = async (id:number) =>{
 const createUser = async (input:UserCreateInput) =>{
     try {
        const result = await UserModel.create(input);
-       return result ?? {}; 
+       
+       return result.dataValues ; 
     } catch (error) {
         console.log(error);
     }

@@ -13,7 +13,7 @@ const notificationSchema: Schema = new Schema(
             default:false
         },
         userId:{
-            type: Schema.Types.ObjectId
+            type:Number
         },
         createdAt: { type: Date, default: Date.now }
     },

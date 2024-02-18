@@ -12,15 +12,17 @@ const grpcServer: UserServiceHandlers= {
         if (call.request) {
             console.log(` ${call.request.email} ${call.request.password}`)
         }
-        await createUser({
+        const user=await createUser({
             email:call.request.email,
             password:call.request.password,
-            userName:call.request.name
+            userName:call.request.name,
         })
+        
         callback(null, {
             user: {
-               email:call.request.email,
-            userName:call.request.name
+            email:call.request.email,
+            userName:call.request.name,
+            id:user?.id
             },
         })
     },

@@ -19,7 +19,6 @@
     "prefer-template": ["warn"],
     "camelcase": 0,
     "no-return-assign": 0,
-    "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/no-unresolved": 0,
