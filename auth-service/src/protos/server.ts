@@ -1,30 +1,49 @@
-import { TestServiceHandlers } from "./dist/test/TestService"
+import { AuthServiceHandlers } from "./dist/auth/AuthService"
 import * as grpc from '@grpc/grpc-js'
 import * as protoLoader from '@grpc/proto-loader'
-import { ProtoGrpcType } from "./dist/test"
+import { ProtoGrpcType } from "./dist/auth"
 import { GRPC_HOST } from "@auth/config"
+import { loginService, registerService } from "@auth/service/auth"
 
 const host = GRPC_HOST || "localhost:9090"
 
-const grpcServer: TestServiceHandlers = {
-    CreateTest(call, callback) {
+const grpcServer: AuthServiceHandlers = {
+    async Login(call, callback) {
         if (call.request) {
-            console.log(` ${call.request.description} ${call.request.name}`)
+            console.log(` ${call.request.email} ${call.request.password}`)
         }
+        
+       const result =  await loginService(call.request.email,call.request.password);
+       if(!result){
+        throw new Error("user not found");
+       }
+        callback(null, { 
+            user:{
+                email:result.user.email,
+                name:result.user.userName
+            } ,
+            token:result.token
+        })
+    },
+async register(call, callback) {
+        if (call.request) {
+            console.log(` ${call.request.email} ${call.request.password}`)
+        }
+        await registerService(call.request.email,call.request.password,call.request.userName);
         callback(null, {
-            tests: {
-                description: "test",
-                id: 1,
-                name: "test"
+            user: {
+                email: call.request.email,
+                name:call.request.userName 
             },
+            
         })
     }
-}
+};
 function getServer(): grpc.Server {
-    const packageDefinition = protoLoader.loadSync('./src/protos/test.proto')
+    const packageDefinition = protoLoader.loadSync('./src/protos/auth.proto')
     const proto = grpc.loadPackageDefinition(packageDefinition) as unknown as ProtoGrpcType
     const server = new grpc.Server()
-    server.addService(proto.test.TestService.service, grpcServer)
+    server.addService(proto.auth.AuthService.service, grpcServer)
     return server
 }
 

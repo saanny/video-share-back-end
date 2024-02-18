@@ -1,0 +1,39 @@
+
+// message UploadVideoModel {
+//   string _id = 1;
+//   string file_name = 2;
+//   repeated int32 available_resolutions = 3;
+//   string ext = 4;
+//   string path_on_disk = 5;
+// }
+
+// message CreateUploadVideoRequest {
+//   string _id = 1;
+//   string file_name = 2;
+//   repeated int32 available_resolutions = 3;
+//   string ext = 4;
+//   string path_on_disk = 5;
+// }
+
+// message CreateUploadVideoResponse { UploadVideoModel video = 1; }
+
+// service UploadVideoService {
+//   rpc CreateUploadVideo(CreateUploadVideoRequest) returns (CreateUploadVideoResponse);
+// }
+
+syntax = "proto3";
+
+package uploadVideo;
+
+
+message UploadVideoRequest {
+  bytes chunk = 1;
+}
+
+message UploadVideoResponse {
+  string message = 1;
+}
+
+service UploadVideoService {
+  rpc CreateUploadVideo(stream UploadVideoRequest) returns (UploadVideoResponse);
+}
