@@ -8,7 +8,7 @@ A simple video share api like youtube.
 ### Setup
 
 Follow these steps if you want to run this application on your computer, either
-in a Docker container or as a standalone Python application.
+in a Docker container.
 
 ```bash
 git clone https://github.com/saanny/video-share-back-end
