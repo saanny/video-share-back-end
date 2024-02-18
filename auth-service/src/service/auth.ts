@@ -1,17 +1,25 @@
 import { createUser, findUser } from "@auth/protos/userGrpcClient";
 import { HashService } from "./hashService"
 import jwt from 'jsonwebtoken';
+import { publishMessage } from "@auth/broker/publisher";
+import { authChannel } from "@auth/server";
 const secret = "SECRET12313";
 export const registerService = async (email:string,password:string,userName:string) => {
     try {
          const hashService = new HashService();
          const hashedPassword = await hashService.hashPassword(password);
-         await createUser({
+         const result = await createUser({
             email:email,
             password:hashedPassword,
             name:userName
         })
-
+       await publishMessage(authChannel,"ex-user-register","ex-user-register-r",
+       JSON.stringify({
+        userId:result.user?.id,
+        title:"Welcome to our website",
+        description:"well thanks for registration to our website"
+       })
+       ) 
         return {
             email,
             name:userName

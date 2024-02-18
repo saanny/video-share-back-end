@@ -4,6 +4,7 @@ import { ProtoGrpcType } from './dist/user'
 import { CreateUserRequest } from './dist/user/CreateUserRequest';
 import { GetUserRequest } from './dist/user/GetUserRequest';
 import { GetUserResponse } from './dist/user/GetUserResponse';
+import { CreateUserResponse } from './dist/user/CreateUserResponse';
 
 
 const host = '0.0.0.0:9191';
@@ -19,7 +20,7 @@ client.waitForReady(deadline, (error?: Error) => {
     if (error) console.log(`Client connect error: ${error.message}`)
 })
 
-export async function createUser(user:CreateUserRequest) {
+export async function createUser(user:CreateUserRequest):Promise<CreateUserResponse> {
     return new Promise((resolve, reject) => {
         client.CreateUser(
             {
@@ -32,7 +33,7 @@ export async function createUser(user:CreateUserRequest) {
                     reject(error)
                 } else if (serverMessage) {
                     console.log(serverMessage.user)
-                    resolve(serverMessage.user)
+                    resolve(serverMessage)
                 }
             }
         )

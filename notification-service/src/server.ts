@@ -1,7 +1,8 @@
-// import { Channel } from "amqplib";
 import { newConnection } from "@notifications/broker";
 
 import { createGrpcServer } from "./protos/server";
+import { subscribeToRegisteredUser } from "./broker/consumer";
+import { Channel } from "amqplib";
 
 export async function start() {
     createGrpcServer();
@@ -9,5 +10,6 @@ export async function start() {
 }
 
 async function startQueues() { 
-    await newConnection();
+    const notificationChannel = await newConnection() as Channel;
+    await subscribeToRegisteredUser(notificationChannel);
 }

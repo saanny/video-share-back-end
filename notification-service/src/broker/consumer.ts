@@ -1,5 +1,6 @@
 import { Channel, ConsumeMessage } from 'amqplib';
 import { newConnection } from './';
+import { createNotification } from '@notifications/service/notification';
 
 
 async function subscribeToUploadVideoNotification(channel: Channel) {
@@ -56,6 +57,11 @@ async function subscribeToRegisteredUser(channel: Channel) {
         channel.consume(queue.queue, async (msg: ConsumeMessage | null) => {
             const data = JSON.parse(msg!.content.toString());
             console.log(data);
+            await createNotification({
+                description:data.description,
+                title:data.title,
+                userId:data.userId
+            })
             channel.ack(msg!);
         });
     } catch (error) {
