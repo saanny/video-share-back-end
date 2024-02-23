@@ -1,5 +1,5 @@
-import { authLogin, authRegister } from "@gateway/protos/userGrpcClient";
-import { Request,Response } from "express"
+import { authLogin, authRegister } from '@gateway/protos/userGrpcClient';
+import { Request,Response } from 'express';
 
  const register = async (req:Request,res:Response)=>{
     
@@ -14,9 +14,9 @@ import { Request,Response } from "express"
     return res.status(201).send(result);
     } catch (error) {
         console.log(error);
-    return res.status(500).send("system error");
+    return res.status(500).send('system error');
     }
- }
+ };
 const login = async (req:Request,res:Response)=>{
     try {
         const {email,password} = req.body;
@@ -27,7 +27,7 @@ const login = async (req:Request,res:Response)=>{
         return res.status(200).send(result);
     } catch (error) {
        console.log(error); 
-    return res.status(500).send("system error");
+    return res.status(500).send('system error');
     }
- }
+ };
  export {register,login};

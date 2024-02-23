@@ -1,8 +1,9 @@
-import { start } from "@auth/server";
-import { mysqlConnection } from "./infra/db/mysql";
+import { start } from '@auth/server';
+
+import { mysqlConnection } from './infra/db/mysql';
 
 function init() {
-    mysqlConnection()
+    mysqlConnection();
     start();
 }
 init();

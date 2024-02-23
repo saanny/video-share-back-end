@@ -1,4 +1,4 @@
 const uploadVideo = ()=> {
 
-}
+};
 export {uploadVideo};

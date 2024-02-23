@@ -1,5 +1,5 @@
-import { MONGO_DB_URL } from "@video/config";
-import mongoose from "mongoose";
+import { MONGO_DB_URL } from '@video/config';
+import mongoose from 'mongoose';
 
 const databaseConnection = async (): Promise<void> => {
     try {

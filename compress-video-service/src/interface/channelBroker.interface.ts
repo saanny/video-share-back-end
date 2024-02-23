@@ -1,4 +1,4 @@
-import { Channel } from "amqplib"
+import { Channel } from 'amqplib';
 
 export interface IChannelBroker {
     queueName: string

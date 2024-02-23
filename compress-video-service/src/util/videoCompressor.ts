@@ -1,7 +1,8 @@
-import ffmpeg from "fluent-ffmpeg";
-import { resolve } from "path";
-import compressVideoRepository from "@compress-video/repository/compressVideo.repository";
-import { v4 as uuidv4 } from "uuid";
+import { resolve } from 'path';
+
+import ffmpeg from 'fluent-ffmpeg';
+import compressVideoRepository from '@compress-video/repository/compressVideo.repository';
+import { v4 as uuidv4 } from 'uuid';
 
 interface GeneratedVideo {
   link: string;
@@ -34,14 +35,14 @@ class VideoCompressor {
       }
       return generatedVideos;
     } catch (error) {
-      console.error("Error in compress:", error);
+      console.error('Error in compress:', error);
     }
   }
 
   private getVideoResolution(videoPath: string): Promise<Resolution> {
     return new Promise((resolve, reject) => {
       ffmpeg.ffprobe(videoPath, (err, metadata) => {
-        if (err) reject(err);
+        if (err) {reject(err);}
         const { width, height } = metadata.streams[0];
         resolve({ width, height });
       });
@@ -70,7 +71,7 @@ class VideoCompressor {
       ffmpeg(videoPath)
         .size(`?x${quality}`)
         .save(link)
-        .on("end", async () => {
+        .on('end', async () => {
           console.log(`Generated: ${link}`);
 
           const generatedVideo: GeneratedVideo = {
@@ -86,14 +87,14 @@ class VideoCompressor {
             reject(error);
           }
         })
-        .on("error", (err) => {
-          console.error("Error:", err);
+        .on('error', (err) => {
+          console.error('Error:', err);
           reject(err);
         });
     });
   }
 
-  private async saveToDb(videoData: any) {
+  private async saveToDb(videoData: GeneratedVideo) {
     await compressVideoRepository.create(videoData);
   }
 }
@@ -103,10 +104,10 @@ export default new VideoCompressor();
 const videoCompressor = new VideoCompressor();
 
 videoCompressor
-  .compress("../video/video.mp4", "1")
+  .compress('../video/video.mp4', '1')
   .then(() => {
-    console.log("Compression completed");
+    console.log('Compression completed');
   })
   .catch((err) => {
-    console.error("Compression failed:", err);
+    console.error('Compression failed:', err);
   });

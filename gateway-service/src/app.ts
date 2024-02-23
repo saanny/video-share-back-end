@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+
 import { Gateway } from './server';
 
 class Application {

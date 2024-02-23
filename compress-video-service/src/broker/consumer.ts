@@ -1,25 +1,26 @@
-import videoCompressor from "@compress-video/util/videoCompressor";
-import { Channel } from "amqplib";
-import { newConnection } from "./broker";
+import videoCompressor from '@compress-video/util/videoCompressor';
+import { Channel } from 'amqplib';
+
+import { newConnection } from './broker';
 
 export async function Consumer(channel: Channel) {
   if (!channel) {
     channel = (await newConnection()) as Channel;
   }
-  const exchangeName = "video_compress";
-  await channel.assertExchange(exchangeName, "direct");
+  const exchangeName = 'video_compress';
+  await channel.assertExchange(exchangeName, 'direct');
 
-  const { queue } = await channel.assertQueue("", { exclusive: true });
+  const { queue } = await channel.assertQueue('', { exclusive: true });
   
-  channel.bindQueue(queue, exchangeName, "video_uploaded");
+  channel.bindQueue(queue, exchangeName, 'video_uploaded');
 
   channel.consume(queue, async (msg: any) => {
     if (msg) {
       try {
-        console.log(JSON.parse(msg?.content.toString("utf-8")));
+        console.log(JSON.parse(msg?.content.toString('utf-8')));
 
         const { userId, videoPath } = JSON.parse(
-          msg?.content.toString("utf-8")
+          msg?.content.toString('utf-8')
         );
 
          await videoCompressor.compress(
@@ -28,7 +29,7 @@ export async function Consumer(channel: Channel) {
         );
         channel.ack(msg!);
       } catch (err) {
-        console.error("Error compressing video or publishing events:", err);
+        console.error('Error compressing video or publishing events:', err);
       }
     }
   });

@@ -1,5 +1,5 @@
-import { uploadVideo } from "@gateway/services/api/upload";
-import express,{ Router } from "express";
+import { uploadVideo } from '@gateway/services/api/upload';
+import express,{ Router } from 'express';
 
 class Upload {
     private router:Router;

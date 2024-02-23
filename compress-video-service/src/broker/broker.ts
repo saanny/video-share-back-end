@@ -1,5 +1,5 @@
 import client, { Channel, Connection } from 'amqplib';
-import { RABBITMQ_ENDPOINT } from "@compress-video/config";
+import { RABBITMQ_ENDPOINT } from '@compress-video/config';
 
 async function newConnection() {
     try {
@@ -8,7 +8,7 @@ async function newConnection() {
         closeConnection(channel, connection);
         return channel;
     } catch (error) {
-        console.log(error)
+        console.log(error);
         return undefined;
     }
 }

@@ -1,10 +1,8 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
-import { UploadVideoServiceHandlers } from './dist/uploadVideo/UploadVideoService';
+
 import { ProtoGrpcType } from './dist/upload';
-import { publishMessage } from '@upload/broker/publisher';
-import { newConnection } from '@upload/broker';
-import { Channel } from 'amqplib';
+import { UploadVideoServiceHandlers } from './dist/uploadVideo/UploadVideoService';
 
 const host = process.env.GRPC_HOST || 'localhost:9090';
 

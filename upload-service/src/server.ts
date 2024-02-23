@@ -1,6 +1,5 @@
 import { Channel } from 'amqplib';
 import { newConnection } from '@upload/broker';
-
 import { createGrpcServer } from '@upload/protos/server';
 
 export async function start() {

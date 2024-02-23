@@ -1,6 +1,7 @@
 import { Channel, ConsumeMessage } from 'amqplib';
-import { newConnection } from './';
 import { createNotification } from '@notifications/service/notification';
+
+import { newConnection } from './';
 
 
 async function subscribeToUploadVideoNotification(channel: Channel) {
@@ -61,7 +62,7 @@ async function subscribeToRegisteredUser(channel: Channel) {
                 description:data.description,
                 title:data.title,
                 userId:data.userId
-            })
+            });
             channel.ack(msg!);
         });
     } catch (error) {

@@ -5,7 +5,7 @@ async function newConnection() {
     try {
         const connection: Connection = await client.connect(`${RABBITMQ_ENDPOINT}`);
         const channel: Channel = await connection.createChannel();
-        console.log("notification service successfully connected to rabbitmq");
+        console.log('notification service successfully connected to rabbitmq');
         closeConnection(channel, connection);
         return channel;
     } catch (error) {

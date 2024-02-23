@@ -1,4 +1,4 @@
-import { NotificationModel } from "@notifications/models/notification";
+import { NotificationModel } from '@notifications/models/notification';
 
 interface NotificationData {
     title:string;
@@ -13,7 +13,7 @@ try {
 } catch (error) {
    console.log(error); 
 }
-}
+};
 
 const getNotificationByUserId = async(userId:string) =>{
 try {
@@ -24,5 +24,5 @@ try {
 } catch (error) {
    console.log(error); 
 }
-}
+};
 export {createNotification,getNotificationByUserId};

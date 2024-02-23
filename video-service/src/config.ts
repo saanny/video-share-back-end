@@ -3,6 +3,7 @@ const PRODUCTION = ['prod', 'production'].includes(
 );
 const DEVELOPMENT = !PRODUCTION;
 if (DEVELOPMENT) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('dotenv').config();
 }
 

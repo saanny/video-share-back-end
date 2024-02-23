@@ -1,8 +1,10 @@
 
-import {Application, json, urlencoded} from 'express';
 import http from 'http';
+
+import {Application, json, urlencoded} from 'express';
 import cors from 'cors';
 import compression from 'compression';
+
 import { appRoutes } from './routes';
 const SERVER_PORT= 5000;
 export class Gateway{
@@ -22,7 +24,7 @@ export class Gateway{
   }
      private standardMiddleware(app: Application): void {
     app.use(cors({
-      origin: "*",
+      origin: '*',
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
     }));
     app.use(compression());
@@ -41,7 +43,7 @@ export class Gateway{
         try {
             httpServer.listen(SERVER_PORT,()=>{
                 console.log(`Gateway server running on port ${SERVER_PORT}`);
-            })
+            });
         } catch (error) {
             console.log(error);
         }

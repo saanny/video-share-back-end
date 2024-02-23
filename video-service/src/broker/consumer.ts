@@ -1,4 +1,5 @@
 import { Channel, ConsumeMessage } from 'amqplib';
+
 import { newConnection } from './';
 
 
@@ -15,11 +16,11 @@ async function subscribeToVideoCompress(channel: Channel) {
         await channel.bindQueue(queue.queue, exchangeName, routingKey);
         channel.consume(queue.queue, async (msg: ConsumeMessage | null) => {
             const data = JSON.parse(msg!.content.toString());
-            console.log(data)
+            console.log(data);
             channel.ack(msg!);
         });
     } catch (error) {
-
+        console.log(error);
     }
 }
 export { subscribeToVideoCompress };

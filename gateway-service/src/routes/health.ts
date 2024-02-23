@@ -1,5 +1,5 @@
-import { health } from "@gateway/services/api/health";
-import express,{ Router } from "express";
+import { health } from '@gateway/services/api/health';
+import express,{ Router } from 'express';
 
 class Health{
     private router:Router;

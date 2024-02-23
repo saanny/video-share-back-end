@@ -8,7 +8,7 @@ async function newConnection() {
         closeConnection(channel, connection);
         return channel;
     } catch (error) {
-        console.log(error)
+        console.log(error);
         return undefined;
     }
 }

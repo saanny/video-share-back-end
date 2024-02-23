@@ -1,5 +1,6 @@
-import { start } from "@compress-video/server";
-import { databaseConnection } from "./infra/mongo";
+import { start } from '@compress-video/server';
+
+import { databaseConnection } from './infra/mongo';
 
 function init() {
     databaseConnection();

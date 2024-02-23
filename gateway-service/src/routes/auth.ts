@@ -1,5 +1,5 @@
-import { login, register} from "@gateway/services/api/auth";
-import express,{ Router } from "express";
+import { login, register} from '@gateway/services/api/auth';
+import express,{ Router } from 'express';
 
 class Auth{
     private router:Router;

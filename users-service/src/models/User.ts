@@ -1,5 +1,5 @@
-import { sequelize } from "@users/infra/postgres";
-import { DataTypes } from "sequelize";
+import { sequelize } from '@users/infra/postgres';
+import { DataTypes } from 'sequelize';
 
 const UserModel = sequelize.define('users',{
     userName:{

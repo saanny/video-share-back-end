@@ -1,4 +1,5 @@
 import { Channel } from 'amqplib';
+
 import { newConnection } from '.'; 
 
 const publishMessage = async (

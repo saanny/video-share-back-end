@@ -1,5 +1,5 @@
-import { getUserInformation, getUserNotifications } from "@gateway/services/api/user";
-import express,{ Router } from "express";
+import { getUserInformation, getUserNotifications } from '@gateway/services/api/user';
+import express,{ Router } from 'express';
 
 class User {
     private router:Router;

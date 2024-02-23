@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/app.ts | pino-pretty -c",
-    "lint:check": "eslint 'src/**/*.ts'",
-    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "lint:check": "eslint \"src/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "prettier:check": "prettier --check 'src/**/*.{ts,json}'",
     "prettier:fix": "prettier --write 'src/**/*.{ts,json}'",
     "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && ts-node tools/copyAssets.ts",
@@ -34,6 +34,7 @@
     "tsconfig-paths": "^4.2.0"
   },
   "dependencies": {
+    "@types/uuid": "^9.0.8",
     "amqplib": "^0.10.3",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
@@ -49,6 +50,7 @@
     "shelljs": "^0.8.5",
     "typescript": "^5.2.2",
     "typescript-transform-paths": "^3.4.6",
+    "uuid": "^9.0.1",
     "winston": "^3.11.0"
   }
 }

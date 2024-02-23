@@ -1,4 +1,4 @@
-import { CompressVideoModel } from "../models/compressVideo";
+import { CompressVideoModel } from '../models/compressVideo';
 
 class CompressVideoRepository {
   async create(videoData: any) {

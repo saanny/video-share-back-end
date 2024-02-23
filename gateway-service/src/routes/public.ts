@@ -1,5 +1,5 @@
-import { getVideo, getVideos } from "@gateway/services/api/public";
-import express,{ Router } from "express";
+import { getVideo, getVideos } from '@gateway/services/api/public';
+import express,{ Router } from 'express';
 
 class Public {
     private router:Router;

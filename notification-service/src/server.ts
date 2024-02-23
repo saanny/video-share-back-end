@@ -1,8 +1,8 @@
-import { newConnection } from "@notifications/broker";
+import { newConnection } from '@notifications/broker';
+import { Channel } from 'amqplib';
 
-import { createGrpcServer } from "./protos/server";
-import { subscribeToRegisteredUser } from "./broker/consumer";
-import { Channel } from "amqplib";
+import { createGrpcServer } from './protos/server';
+import { subscribeToRegisteredUser } from './broker/consumer';
 
 export async function start() {
     createGrpcServer();
