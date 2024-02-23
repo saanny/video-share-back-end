@@ -10,10 +10,7 @@ const grpcServer: UploadVideoServiceHandlers = {
   CreateUploadVideo(_call, callback) {
     _call.on('end', async () => {
       try {
- 
-
-          return callback(null, { message: 'Video uploaded successfully' });
-       
+        return callback(null, { message: 'Video uploaded successfully' });
       } catch (error) {
         console.log(error);
         console.error('Error saving file');
@@ -50,4 +47,3 @@ export function createGrpcServer() {
     }
   );
 }
-

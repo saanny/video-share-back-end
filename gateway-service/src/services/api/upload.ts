@@ -1,4 +1,2 @@
-const uploadVideo = ()=> {
-
-};
-export {uploadVideo};
+const uploadVideo = () => {};
+export { uploadVideo };

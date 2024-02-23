@@ -1,7 +1,3 @@
-const getVideos = ()=>{
-
-};
-const getVideo = ()=>{
-
-};
-export {getVideo,getVideos};
+const getVideos = () => {};
+const getVideo = () => {};
+export { getVideo, getVideos };

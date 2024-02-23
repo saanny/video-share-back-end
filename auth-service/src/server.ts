@@ -1,13 +1,13 @@
-import { Channel } from 'amqplib';
-import { newConnection } from '@auth/broker';
+import { Channel } from "amqplib";
+import { newConnection } from "@auth/broker";
 
-import { createGrpcServer } from './protos/server';
+import { createGrpcServer } from "./protos/server";
 export let authChannel: Channel;
 export async function start() {
-    createGrpcServer();
-    startQueues();
+  createGrpcServer();
+  startQueues();
 }
 
 async function startQueues() {
-    authChannel= await newConnection() as Channel;
+  authChannel = (await newConnection()) as Channel;
 }

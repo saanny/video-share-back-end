@@ -1,6 +1,6 @@
-import { newConnection } from './broker/broker';
-import { Consumer } from './broker/consumer';
-import { IChannelBroker } from './interface/channelBroker.interface';
+import { newConnection } from "./broker/broker";
+import { Consumer } from "./broker/consumer";
+import { IChannelBroker } from "./interface/channelBroker.interface";
 
 export async function start() {
   startQueues();

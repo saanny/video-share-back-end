@@ -1,7 +1,3 @@
-const getUserNotifications = ()=>{
-
-};
-const getUserInformation = ()=>{
-
-};
-export {getUserInformation,getUserNotifications};
+const getUserNotifications = () => {};
+const getUserInformation = () => {};
+export { getUserInformation, getUserNotifications };

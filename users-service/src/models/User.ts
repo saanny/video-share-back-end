@@ -1,24 +1,28 @@
-import { sequelize } from '@users/infra/postgres';
-import { DataTypes } from 'sequelize';
+import { sequelize } from "@users/infra/postgres";
+import { DataTypes } from "sequelize";
 
-const UserModel = sequelize.define('users',{
-    userName:{
-        type:DataTypes.STRING
+const UserModel = sequelize.define(
+  "users",
+  {
+    userName: {
+      type: DataTypes.STRING,
     },
-    password:{
-        type:DataTypes.STRING,
-        allowNull:false
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    createdAt:{
-        type:DataTypes.DATE,
-        defaultValue:Date.now
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: Date.now,
     },
-},{
-    indexes:[]
-});
+  },
+  {
+    indexes: [],
+  },
+);
 UserModel.sync({});
-export {UserModel};
+export { UserModel };
