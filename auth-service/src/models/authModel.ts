@@ -1,8 +1,8 @@
-import { sequelize } from "@auth/infra/db/mysql";
-import { DataTypes } from "sequelize";
+import { sequelize } from '@auth/infra/db/mysql';
+import { DataTypes } from 'sequelize';
 
 const AuthModel = sequelize.define(
-  "auth_sessions",
+  'auth_sessions',
   {
     createdAt: {
       type: DataTypes.DATE,

@@ -1,4 +1,4 @@
-import argon from "argon2";
+import argon from 'argon2';
 
 export class HashService {
   async hashPassword(password: string): Promise<string> {

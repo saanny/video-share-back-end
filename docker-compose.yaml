@@ -77,4 +77,21 @@ services:
     ports:
       - 5672:5672
       - 15672:15672
- 
+  authservice:
+    container_name: auth_container
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports: 
+      - 9090:9090
+    env_file: ./auth-service/.env
+    environment:
+     - ENABLE_APM=0
+     - NODE_ENV=development
+     - RABBITMQ_ENDPOINT=amqp://rabbitmq_container:5672
+     - GRPC_HOST=localhost:9090
+     - MYSQL_DATABASE=users_auth
+     - MYSQL_USER=root
+     - MYSQL_PASSWORD=admintest
+     - MYSQL_HOST=mysql_container

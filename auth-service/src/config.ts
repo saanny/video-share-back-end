@@ -1,10 +1,10 @@
-const PRODUCTION = ["prod", "production"].includes(
+const PRODUCTION = ['prod', 'production'].includes(
   process.env.NODE_ENV as string,
 );
 const DEVELOPMENT = !PRODUCTION;
 if (DEVELOPMENT) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require("dotenv").config();
+  require('dotenv').config();
 }
 
 const {

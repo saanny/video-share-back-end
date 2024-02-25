@@ -1,4 +1,4 @@
-import { CompressVideoModel } from "../models/compressVideo";
+import { CompressVideoModel } from '../models/compressVideo';
 
 class CompressVideoRepository {
   async create(videoData: any) {
@@ -30,11 +30,7 @@ class CompressVideoRepository {
 
   async update(id: string, videoData: any) {
     try {
-      const updatedVideo = await CompressVideoModel.findByIdAndUpdate(
-        id,
-        videoData,
-        { new: true },
-      );
+      const updatedVideo = await CompressVideoModel.findByIdAndUpdate(id, videoData, { new: true });
       return updatedVideo;
     } catch (error) {
       throw error;

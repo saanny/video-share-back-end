@@ -1,12 +1,12 @@
-import * as grpc from "@grpc/grpc-js";
-import * as protoLoader from "@grpc/proto-loader";
-import { GRPC_HOST } from "@auth/config";
-import { loginService, registerService } from "@auth/service/auth";
+import * as grpc from '@grpc/grpc-js';
+import * as protoLoader from '@grpc/proto-loader';
+import { GRPC_HOST } from '@auth/config';
+import { loginService, registerService } from '@auth/service/auth';
 
-import { ProtoGrpcType } from "./dist/auth";
-import { AuthServiceHandlers } from "./dist/auth/AuthService";
+import { ProtoGrpcType } from './dist/auth';
+import { AuthServiceHandlers } from './dist/auth/AuthService';
 
-const host = GRPC_HOST || "localhost:9090";
+const host = GRPC_HOST || 'localhost:9090';
 
 const grpcServer: AuthServiceHandlers = {
   async Login(call, callback) {
@@ -19,7 +19,7 @@ const grpcServer: AuthServiceHandlers = {
       call.request.password,
     );
     if (!result) {
-      throw new Error("user not found");
+      throw new Error('user not found');
     }
     callback(null, {
       user: {
@@ -47,7 +47,7 @@ const grpcServer: AuthServiceHandlers = {
   },
 };
 function getServer(): grpc.Server {
-  const packageDefinition = protoLoader.loadSync("./src/protos/auth.proto");
+  const packageDefinition = protoLoader.loadSync('./src/protos/auth.proto');
   const proto = grpc.loadPackageDefinition(
     packageDefinition,
   ) as unknown as ProtoGrpcType;

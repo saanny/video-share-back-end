@@ -1,5 +1,5 @@
-import client, { Channel, Connection } from "amqplib";
-import { RABBITMQ_ENDPOINT } from "@auth/config";
+import client, { Channel, Connection } from 'amqplib';
+import { RABBITMQ_ENDPOINT } from '@auth/config';
 
 async function newConnection() {
   try {
@@ -13,7 +13,7 @@ async function newConnection() {
   }
 }
 function closeConnection(channel: Channel, connection: Connection): void {
-  process.once("SIGINT", async () => {
+  process.once('SIGINT', async () => {
     await channel.close();
     await connection.close();
   });

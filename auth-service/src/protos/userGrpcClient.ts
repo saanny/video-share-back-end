@@ -1,14 +1,14 @@
-import * as grpc from "@grpc/grpc-js";
-import * as protoLoader from "@grpc/proto-loader";
+import * as grpc from '@grpc/grpc-js';
+import * as protoLoader from '@grpc/proto-loader';
 
-import { ProtoGrpcType } from "./dist/user";
-import { CreateUserRequest } from "./dist/user/CreateUserRequest";
-import { GetUserRequest } from "./dist/user/GetUserRequest";
-import { GetUserResponse } from "./dist/user/GetUserResponse";
-import { CreateUserResponse } from "./dist/user/CreateUserResponse";
+import { ProtoGrpcType } from './dist/user';
+import { CreateUserRequest } from './dist/user/CreateUserRequest';
+import { GetUserRequest } from './dist/user/GetUserRequest';
+import { GetUserResponse } from './dist/user/GetUserResponse';
+import { CreateUserResponse } from './dist/user/CreateUserResponse';
 
-const host = "0.0.0.0:9191";
-const packageDefinition = protoLoader.loadSync("./src/protos/user.proto");
+const host = '0.0.0.0:9191';
+const packageDefinition = protoLoader.loadSync('./src/protos/user.proto');
 const proto = grpc.loadPackageDefinition(
   packageDefinition,
 ) as unknown as ProtoGrpcType;
